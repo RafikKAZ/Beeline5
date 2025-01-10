@@ -5,9 +5,9 @@ body {
     font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Центрирование по горизонтали */
-    justify-content: center; /* Центрирование по вертикали */
-    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Занимает всю высоту экрана */
     box-sizing: border-box;
 }
 
@@ -15,24 +15,33 @@ body {
 h1 {
     text-align: center;
     font-size: 2rem;
-    margin: 20px 0;
+    margin: 10px 0;
     color: #F8B500; /* Цвет Beeline */
 }
 
-/* Контейнер для формы */
-form {
-    flex: 1; /* Форма занимает все доступное пространство */
+/* Контейнер для формы и текста */
+form, .info-text {
     max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
+    width: 100%;
+    margin: 10px auto;
+    padding: 10px;
     box-sizing: border-box;
+}
+
+/* Информационный текст */
+.info-text {
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    text-align: center;
 }
 
 /* Стили для всех полей формы */
 input, select, button {
-    width: 100%; /* Поля заполняют всю доступную ширину */
-    margin-bottom: 15px;
-    padding: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
     font-size: 1rem;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -40,9 +49,9 @@ input, select, button {
 }
 
 #map {
-    width: 100%; /* Карта занимает всю ширину контейнера */
-    height: 300px; /* Высота карты */
-    margin-bottom: 15px;
+    width: 100%;
+    height: 200px;
+    margin-bottom: 10px;
 }
 
 /* Кнопка отправки */
@@ -59,14 +68,14 @@ button:hover {
     background-color: #e09a00;
 }
 
-/* Медиа-запросы для мобильных устройств */
+/* Адаптация для мобильных устройств */
 @media (max-width: 768px) {
     h1 {
         font-size: 1.5rem;
     }
 
     #map {
-        height: 200px;
+        height: 150px;
     }
 
     button {
@@ -81,48 +90,11 @@ button:hover {
     }
 
     #map {
-        height: 150px;
+        height: 120px;
     }
 
     button {
         font-size: 0.8rem;
         padding: 6px;
-    }
-}
-
-/* Общий стиль для текста и формы */
-form, .info-text {
-    max-width: 600px; /* Максимальная ширина блока */
-    width: 100%; /* Адаптивная ширина */
-    margin: 20px auto; /* Центрирование и отступы */
-    box-sizing: border-box;
-}
-
-/* Информационный текст */
-.info-text {
-    margin: 20px 0;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-family: Arial, sans-serif;
-    text-align: center; /* Текст по центру внутри блока */
-}
-
-.info-text p {
-    font-size: 16px;
-    line-height: 1.6;
-    color: #333;
-    margin: 0;
-}
-
-/* Адаптация для мобильных устройств */
-@media screen and (max-width: 768px) {
-    form, .info-text {
-        width: 90%; /* Процентная ширина для мобильных */
-    }
-
-    .info-text p {
-        font-size: 14px; /* Уменьшение шрифта */
     }
 }
