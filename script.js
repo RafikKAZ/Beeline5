@@ -82,6 +82,19 @@ document.addEventListener("DOMContentLoaded", function () {
         } catch (error) {
             console.error("Ошибка:", error);
             alert("Произошла ошибка при отправке данных.");
+
+            
+ // Функция для очистки формы
+    function resetForm() {
+        document.getElementById("submissionForm").reset();  // Сбрасывает значения формы
+        // Удаляем маркер с карты
+        if (placemark) {
+            map.geoObjects.remove(placemark);
+        }
+    }
+});
+
+            
         }
     });
 });
