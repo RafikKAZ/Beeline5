@@ -6,27 +6,27 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     min-height: 100vh;
-    background-color: #f4f4f4; /* Светло-серый фон страницы */
+    background-color: #f4f4f4;
     box-sizing: border-box;
-    overflow: hidden; /* Убираем прокрутку, если элементы выходят за пределы */
+    overflow: hidden;
 }
 
 /* Стили для заголовка */
 h1 {
     text-align: center;
     font-size: 2rem;
-    margin: 20px 0;
-    color: #000; /* Чёрный цвет текста */
-    background-color: #fff; /* Белый фон заголовка */
+    margin: 10px 0;
+    color: #000;
+    background-color: #fff;
     padding: 10px 20px;
-    border-radius: 10px; /* Скруглённые углы */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Тень для выделения */
-    z-index: 1; /* Вывод на передний план */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1;
     position: relative;
     width: 100%;
-    max-width: 100%; /* Ограничиваем ширину */
+    max-width: 100%;
     box-sizing: border-box;
 }
 
@@ -37,11 +37,11 @@ form {
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #fff; /* Белый фон формы */
-    border-radius: 10px; /* Скругленные углы */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Тень для объёмного эффекта */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     box-sizing: border-box;
-    overflow: hidden; /* Убираем лишнюю прокрутку внутри формы */
+    overflow: hidden;
 }
 
 /* Информационный текст */
@@ -50,16 +50,16 @@ form {
     width: 100%;
     margin: 10px auto;
     padding: 15px;
-    background-color: #f9f9f9; /* Светло-серый фон текста */
+    background-color: #f9f9f9;
     border: 1px solid #ccc;
     border-radius: 8px;
     text-align: center;
-    color: #333; /* Цвет текста */
+    color: #333;
 }
 
 /* Стили для всех полей формы */
 input, select, button {
-    width: 100%; /* Поля заполняют всю доступную ширину */
+    width: 100%;
     margin-bottom: 15px;
     padding: 10px;
     font-size: 1rem;
@@ -105,11 +105,11 @@ button:hover {
     }
 
     form {
-        width: 90%; /* Форма будет занимать 90% ширины экрана */
+        width: 90%;
     }
 
     .info-text {
-        width: 90%; /* Текст также будет занимать 90% ширины экрана */
+        width: 90%;
     }
 }
 
@@ -128,10 +128,10 @@ button:hover {
     }
 
     form {
-        width: 95%; /* Форма будет занимать 95% ширины экрана */
+        width: 95%;
     }
 
     .info-text {
-        width: 95%; /* Текст также будет занимать 95% ширины экрана */
+        width: 95%;
     }
 }
