@@ -1,77 +1,61 @@
+/* Основные стили для страницы */
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Занимает всю высоту экрана */
 }
 
-header {
-    background-color: #f8f9fa;
-    padding: 20px;
+h1 {
     text-align: center;
+    font-size: 2rem;
+    margin: 20px 0;
+    color: #F8B500; /* Цвет Beeline */
 }
 
+/* Контейнер для формы */
 form {
+    flex: 1; /* Форма занимает все доступное пространство */
     max-width: 600px;
-    margin: 20px auto;
+    margin: 0 auto;
     padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #fff;
+    box-sizing: border-box;
 }
 
-form label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-form input,
-form select {
-    width: 100%;
-    padding: 10px;
+/* Стили для всех полей формы */
+input, select, button {
+    width: 100%; /* Поля заполняют всю доступную ширину */
     margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-form button {
-    width: 100%;
     padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-form button:hover {
-    background-color: #0056b3;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
 }
 
 #map {
-    width: 100%;
-    height: 400px;
-    margin: 20px 0;
+    width: 100%; /* Карта занимает всю ширину контейнера */
+    height: 300px; /* Высота карты */
+    margin-bottom: 15px;
 }
 
-footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #f8f9fa;
-    border-top: 1px solid #ccc;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+/* Кнопка отправки */
+button {
+    background-color: #F8B500;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 5px;
 }
 
-.centered-title {
-    text-align: center; /* Выравнивание текста по центру */
-    margin: 20px 0; /* Отступы сверху и снизу */
-    font-size: 2rem; /* Размер шрифта */
-    color: #F8B500; /* Корпоративный цвет Beeline */
-    font-weight: bold; /* Жирный шрифт */
+button:hover {
+    background-color: #e09a00;
 }
+
+/* Медиа-запросы для мобильных устройств */
 @media (max-width: 768px) {
     h1 {
         font-size: 1.5rem;
@@ -99,17 +83,5 @@ footer {
     button {
         font-size: 0.8rem;
         padding: 6px;
-    }
-}
-
-
-/* Мобильные устройства */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 20px;
-    }
-
-    button {
-        font-size: 14px;
     }
 }
