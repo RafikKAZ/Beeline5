@@ -65,6 +65,15 @@ footer {
     width: 100%;
 }
 
+.centered-title {
+    text-align: center; /* Выравнивание текста по центру */
+    margin: 20px 0; /* Отступы сверху и снизу */
+    font-size: 2rem; /* Размер шрифта */
+    color: #F8B500; /* Корпоративный цвет Beeline */
+    font-weight: bold; /* Жирный шрифт */
+}
+
+
 /* Мобильные устройства */
 @media (max-width: 768px) {
     header h1 {
