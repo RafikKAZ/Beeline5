@@ -101,13 +101,13 @@ form, .info-text {
     border: 1px solid #ccc;
     border-radius: 8px;
     font-family: Arial, sans-serif;
+    text-align: center; /* Центрирование текста */
 }
 
 .info-text p {
     font-size: 16px;
     line-height: 1.6;
     color: #333;
-    text-align: center;
     margin: 0;
 }
 
@@ -121,4 +121,5 @@ form, .info-text {
         font-size: 14px; /* Уменьшение шрифта */
     }
 }
+
 
