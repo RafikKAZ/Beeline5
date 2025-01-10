@@ -86,15 +86,20 @@ button:hover {
     }
 }
 
+/* Общие стили для формы и текста */
+form, .info-text {
+    max-width: 600px; /* Ширина формы и текста */
+    margin: 0 auto; /* Центрирование */
+    box-sizing: border-box;
+}
+
 /* Стилевые настройки для текста */
 .info-text {
-    width: 100%;
     margin: 20px 0;
     padding: 20px;
     background-color: #f9f9f9;
     border: 1px solid #ccc;
     border-radius: 8px;
-    box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
 
@@ -108,7 +113,12 @@ button:hover {
 
 /* Адаптация для мобильных устройств */
 @media screen and (max-width: 768px) {
+    form, .info-text {
+        width: 90%; /* Процентная ширина для мобильных */
+    }
+
     .info-text p {
-        font-size: 14px;
+        font-size: 14px; /* Уменьшение шрифта */
     }
 }
+
