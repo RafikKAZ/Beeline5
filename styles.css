@@ -6,8 +6,10 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh; /* Занимает всю высоту экрана */
+    justify-content: center; /* Центрирование по вертикали */
 }
 
+/* Стили для заголовка */
 h1 {
     text-align: center;
     font-size: 2rem;
@@ -121,5 +123,3 @@ form, .info-text {
         font-size: 14px; /* Уменьшение шрифта */
     }
 }
-
-
