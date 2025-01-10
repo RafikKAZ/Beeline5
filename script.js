@@ -79,6 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const result = await response.text();
             alert(result);
+             resetForm();  // Очищаем форму после отправки
         } catch (error) {
             console.error("Ошибка:", error);
             alert("Произошла ошибка при отправке данных.");
