@@ -90,24 +90,23 @@ button:hover {
     }
 }
 
-/* Общие стили для формы и текста */
+/* Общий стиль для текста и формы */
 form, .info-text {
-    max-width: 600px; /* Ширина формы и текста */
-    margin: 0 auto; /* Центрирование */
+    max-width: 600px; /* Максимальная ширина блока */
+    width: 100%; /* Адаптивная ширина */
+    margin: 20px auto; /* Центрирование и отступы */
     box-sizing: border-box;
-    display: block; /* Убедитесь, что элемент является блочным */
 }
 
-/* Стилевые настройки для текста */
+/* Информационный текст */
 .info-text {
-    margin: 20px auto; /* Центрирование по горизонтали */
+    margin: 20px 0;
     padding: 20px;
-    max-width: 600px;
     background-color: #f9f9f9;
     border: 1px solid #ccc;
     border-radius: 8px;
-    text-align: center; /* Центрирование текста внутри */
-    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    text-align: center; /* Текст по центру внутри блока */
 }
 
 .info-text p {
