@@ -72,6 +72,35 @@ footer {
     color: #F8B500; /* Корпоративный цвет Beeline */
     font-weight: bold; /* Жирный шрифт */
 }
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    #map {
+        height: 200px;
+    }
+
+    button {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.2rem;
+    }
+
+    #map {
+        height: 150px;
+    }
+
+    button {
+        font-size: 0.8rem;
+        padding: 6px;
+    }
+}
 
 
 /* Мобильные устройства */
