@@ -57,7 +57,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Отправка данных через форму
     document.getElementById("submissionForm").addEventListener("submit", async function (event) {
-        event.preventDefault();
+        event.preventDefault(); // Останавливаем отправку для проверки данных
+
+        // Получаем значения полей
+        const address = document.getElementById("address").value.trim();
+        const coordinates = document.getElementById("coordinates").value.trim();
+
+        // Проверяем, заполнены ли "Адрес дома" и "Координаты"
+        if (address === "" || coordinates === "") {
+            alert("Пожалуйста, заполните все поля, включая 'Адрес дома' и 'Координаты'.");
+            return; // Прерываем выполнение, если поля не заполнены
+        }
 
         const formData = new FormData(event.target);
 
