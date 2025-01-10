@@ -10,12 +10,13 @@ body {
     min-height: 100vh;
     background-color: #f4f4f4; /* Светло-серый фон страницы */
     box-sizing: border-box;
+    overflow: hidden; /* Убираем прокрутку, если элементы выходят за пределы */
 }
 
 /* Стили для заголовка */
 h1 {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin: 20px 0;
     color: #000; /* Чёрный цвет текста */
     background-color: #fff; /* Белый фон заголовка */
@@ -24,19 +25,23 @@ h1 {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Тень для выделения */
     z-index: 1; /* Вывод на передний план */
     position: relative;
+    width: 100%;
+    max-width: 100%; /* Ограничиваем ширину */
+    box-sizing: border-box;
 }
 
 /* Контейнер для формы */
 form {
     flex: 1;
-    max-width: 600px;
     width: 100%;
-    margin: 20px auto;
+    max-width: 600px;
+    margin: 0 auto;
     padding: 20px;
     background-color: #fff; /* Белый фон формы */
     border-radius: 10px; /* Скругленные углы */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Тень для объёмного эффекта */
     box-sizing: border-box;
+    overflow: hidden; /* Убираем лишнюю прокрутку внутри формы */
 }
 
 /* Информационный текст */
@@ -54,7 +59,7 @@ form {
 
 /* Стили для всех полей формы */
 input, select, button {
-    width: 100%;
+    width: 100%; /* Поля заполняют всю доступную ширину */
     margin-bottom: 15px;
     padding: 10px;
     font-size: 1rem;
@@ -87,7 +92,7 @@ button:hover {
 /* Адаптация для мобильных устройств */
 @media (max-width: 768px) {
     h1 {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
     }
 
     #map {
@@ -98,11 +103,19 @@ button:hover {
         font-size: 0.9rem;
         padding: 8px;
     }
+
+    form {
+        width: 90%; /* Форма будет занимать 90% ширины экрана */
+    }
+
+    .info-text {
+        width: 90%; /* Текст также будет занимать 90% ширины экрана */
+    }
 }
 
 @media (max-width: 480px) {
     h1 {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
 
     #map {
@@ -112,5 +125,13 @@ button:hover {
     button {
         font-size: 0.8rem;
         padding: 6px;
+    }
+
+    form {
+        width: 95%; /* Форма будет занимать 95% ширины экрана */
+    }
+
+    .info-text {
+        width: 95%; /* Текст также будет занимать 95% ширины экрана */
     }
 }
