@@ -10,7 +10,7 @@ body {
     min-height: 100vh;
     background-color: #f4f4f4;
     box-sizing: border-box;
-    overflow: hidden;
+    overflow-y: auto; /* Разрешаем вертикальную прокрутку */
 }
 
 /* Стили для заголовка */
@@ -42,6 +42,7 @@ form {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     box-sizing: border-box;
     overflow: hidden;
+    margin-bottom: 50px; /* Отступ снизу для кнопки */
 }
 
 /* Информационный текст */
