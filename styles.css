@@ -5,8 +5,10 @@ body {
     font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Занимает всю высоту экрана */
+    align-items: center; /* Центрирование по горизонтали */
     justify-content: center; /* Центрирование по вертикали */
+    min-height: 100vh;
+    box-sizing: border-box;
 }
 
 /* Стили для заголовка */
@@ -98,14 +100,14 @@ form, .info-text {
 
 /* Стилевые настройки для текста */
 .info-text {
-    margin: 20px 0;
+    margin: 20px auto; /* Центрирование по горизонтали */
     padding: 20px;
+    max-width: 600px;
     background-color: #f9f9f9;
     border: 1px solid #ccc;
     border-radius: 8px;
-    font-family: Arial, sans-serif;
-    text-align: center; /* Центрирование текста */
-    width: 100%; /* Делаем ширину блока на 100% родительского контейнера */
+    text-align: center; /* Центрирование текста внутри */
+    box-sizing: border-box;
 }
 
 .info-text p {
