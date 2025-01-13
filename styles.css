@@ -3,59 +3,49 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
+    background-color: #F9F9F9;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    min-height: 100vh;
-    background-color: #f4f4f4;
     box-sizing: border-box;
-    overflow-y: auto; /* Разрешаем вертикальную прокрутку */
+    min-height: 100vh;
+}
+
+/* Логотип Beeline */
+.header {
+    width: 100%;
+    background-color: #FFF;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    max-width: 150px;
+    height: auto;
 }
 
 /* Стили для заголовка */
 h1 {
     text-align: center;
     font-size: 2rem;
-    margin: 10px 0;
+    margin: 20px 0;
     color: #000;
-    background-color: #fff;
-    padding: 10px 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    position: relative;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
 }
 
 /* Контейнер для формы */
 form {
-    flex: 1;
-    width: 100%;
     max-width: 600px;
+    width: 100%;
     margin: 0 auto;
     padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    box-sizing: border-box;
-    overflow: hidden;
-    margin-bottom: 50px; /* Отступ снизу для кнопки */
-}
-
-/* Информационный текст */
-.info-text {
-    max-width: 600px;
-    width: 100%;
-    margin: 10px auto;
-    padding: 15px;
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #FFF;
     border-radius: 8px;
-    text-align: center;
-    color: #333;
+    box-sizing: border-box;
 }
 
 /* Стили для всех полей формы */
@@ -71,7 +61,7 @@ input, select, button {
 
 #map {
     width: 100%;
-    height: 200px;
+    height: 300px;
     margin-bottom: 15px;
 }
 
@@ -83,34 +73,38 @@ button {
     cursor: pointer;
     font-size: 1rem;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
 }
 
 button:hover {
     background-color: #e09a00;
 }
 
-/* Адаптация для мобильных устройств */
+/* Информационный текст */
+.info-text {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #FFF3D0;
+    border: 1px solid #F8B500;
+    border-radius: 8px;
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* Медиа-запросы для мобильных устройств */
 @media (max-width: 768px) {
     h1 {
         font-size: 1.5rem;
     }
 
     #map {
-        height: 150px;
+        height: 200px;
     }
 
     button {
         font-size: 0.9rem;
         padding: 8px;
-    }
-
-    form {
-        width: 90%;
-    }
-
-    .info-text {
-        width: 90%;
     }
 }
 
@@ -120,19 +114,11 @@ button:hover {
     }
 
     #map {
-        height: 120px;
+        height: 150px;
     }
 
     button {
         font-size: 0.8rem;
         padding: 6px;
-    }
-
-    form {
-        width: 95%;
-    }
-
-    .info-text {
-        width: 95%;
     }
 }
