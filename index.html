@@ -8,39 +8,53 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header class="header">
-        <img src="logo.svg" alt="Логотип Beeline" class="logo">
+    <header>
+        <img src="logo.svg" alt="Beeline Logo" class="logo">
     </header>
-    <main>
-        <h1 class="centered-title">Оставить заявку на подключение</h1>
-        <div class="info-text">
-            <p>Если Вашего дома нет в списке, значит, Вам сейчас нельзя подключить наш скоростной домашний интернет по оптоволокну. Но это временно. Мы каждый год строим и расширяем сеть, чтобы как можно больше людей смогли пользоваться «Интернет Дома». Оставьте заявку, и мы рассмотрим Ваш адрес. Если заявок из Вашего ЖК будет много, мы скорректируем свои планы и пересмотрим график работ.</p>
-        </div>
-        <form id="submissionForm">
-            <label for="city">Город:</label>
-            <select id="city" name="city" required>
-                <option value="Алматы">Алматы</option>
+    <h1>Оставить заявку на подключение</h1>
+    <div class="info-text">
+        <p>Если Вашего дома нет в списке, значит, Вам сейчас нельзя подключить наш скоростной домашний интернет по оптоволокну. Но это временно. Мы каждый год строим и расширяем сеть, чтобы как можно больше людей смогли пользоваться «Интернет Дома». Оставьте заявку, и мы рассмотрим Ваш адрес. Если заявок из Вашего ЖК будет много, мы скорректируем свои планы и пересмотрим график работ.</p>
+    </div>
+    <form id="submissionForm">
+        <label for="city">Город:</label>
+        <select id="city" name="city" required onchange="updateMap()">
+            <optgroup label="Областные центры">
                 <option value="Астана">Астана</option>
+                <option value="Алматы">Алматы</option>
+                <option value="Шымкент">Шымкент</option>
+                <option value="Актау">Актау</option>
+                <option value="Актобе">Актобе</option>
+                <option value="Атырау">Атырау</option>
                 <option value="Караганда">Караганда</option>
-            </select>
+                <option value="Кокшетау">Кокшетау</option>
+                <option value="Костанай">Костанай</option>
+                <option value="Кызылорда">Кызылорда</option>
+                <option value="Павлодар">Павлодар</option>
+                <option value="Петропавловск">Петропавловск</option>
+                <option value="Талдыкорган">Талдыкорган</option>
+                <option value="Тараз">Тараз</option>
+                <option value="Уральск">Уральск</option>
+                <option value="Усть-Каменогорск">Усть-Каменогорск</option>
+            </optgroup>
+        </select>
 
-            <label for="name">ФИО:</label>
-            <input type="text" id="name" name="name" required>
+        <label for="name">ФИО:</label>
+        <input type="text" id="name" name="name" required>
 
-            <label for="phone">Контактный номер:</label>
-            <input type="text" id="phone" name="phone" required>
+        <label for="phone">Контактный номер:</label>
+        <input type="text" id="phone" name="phone" required>
 
-            <label for="address">Адрес дома:</label>
-            <input type="text" id="address" name="address" readonly required placeholder="Выберите адрес на карте">
+        <label for="address">Адрес дома:</label>
+        <input type="text" id="address" name="address" readonly required placeholder="Выберите адрес на карте">
 
-            <label for="coordinates">Координаты:</label>
-            <input type="text" id="coordinates" name="coordinates" readonly required placeholder="Автоматически заполняются">
+        <label for="coordinates">Координаты:</label>
+        <input type="text" id="coordinates" name="coordinates" readonly required placeholder="Автоматически заполняются">
 
-            <div id="map"></div>
+        <div id="map"></div>
 
-            <button type="submit">Отправить заявку</button>
-        </form>
-    </main>
+        <button type="submit">Отправить заявку</button>
+    </form>
+
     <script src="script.js"></script>
 </body>
 </html>
