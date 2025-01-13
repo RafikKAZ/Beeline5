@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "Щучинск": [52.934115, 70.189818],
         "Курчатов": [50.753168, 78.550736],
         "Аксу": [52.046584, 76.918110],
-        "Лисаковск": [52.548712, 62.497317]
+        "Лисаковск": [52.548712, 62.497317],
     };
 
     // Инициализация карты
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function initMap() {
         const defaultCity = document.getElementById("city").value;
         map = new ymaps.Map("map", {
-            center: cityCenters[defaultCity] || [51.169392, 71.449074], // Центр Казахстана
+            center: cityCenters[defaultCity],
             zoom: 10
         });
 
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 placemark = createPlacemark(coords);
                 map.geoObjects.add(placemark);
             }
-            getAddress(coords); // Получение адреса
+            getAddress(coords);
         });
 
         // Обработчик изменения города
@@ -75,10 +75,50 @@ document.addEventListener("DOMContentLoaded", function () {
         ymaps.geocode(coords).then(function (res) {
             const firstGeoObject = res.geoObjects.get(0);
             const address = firstGeoObject.getAddressLine();
-            document.getElementById("address").value = address; // Заполнение поля "Адрес дома"
-            document.getElementById("coordinates").value = coords.join(", "); // Заполнение поля "Координаты"
-        }).catch(function (err) {
-            console.error("Ошибка при определении адреса:", err);
+            document.getElementById("address").value = address;
+            document.getElementById("coordinates").value = coords.join(", ");
         });
+    }
+
+    // Отправка данных через форму
+    document.getElementById("submissionForm").addEventListener("submit", async function (event) {
+        event.preventDefault(); // Останавливаем отправку для проверки данных
+
+        // Получаем значения полей
+        const address = document.getElementById("address").value.trim();
+        const coordinates = document.getElementById("coordinates").value.trim();
+
+        // Проверяем, заполнены ли "Адрес дома" и "Координаты"
+        if (address === "" || coordinates === "") {
+            alert("Пожалуйста, заполните все поля, включая 'Адрес дома' и 'Координаты'.");
+            return; // Прерываем выполнение, если поля не заполнены
+        }
+
+        const formData = new FormData(event.target);
+
+        try {
+            const response = await fetch("https://script.google.com/macros/s/AKfycbwAj5jmO20rc5_0ZjvgaVlBUc2pmnNFbh4NdhjIvknYZR_ByQI_QI2aNBjLPWhrkn1Ltg/exec", {
+                method: "POST",
+                body: formData,
+            });
+
+            const result = await response.text();
+            alert(result);
+             resetForm();  // Очищаем форму после отправки
+            
+        } catch (error) {
+            console.error("Ошибка:", error);
+            alert("Произошла ошибка при отправке данных.");
+          
+        }
+    });
+
+ // Функция для очистки формы
+    function resetForm() {
+        document.getElementById("submissionForm").reset();  // Сбрасывает значения формы
+        // Удаляем маркер с карты
+        if (placemark) {
+            map.geoObjects.remove(placemark);
+        }
     }
 });
