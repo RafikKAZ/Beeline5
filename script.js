@@ -1,99 +1,43 @@
-document.addEventListener("DOMContentLoaded", function () {
-    // Карта Яндекс
-    let map, placemark;
+ymaps.ready(init);
 
-    // Центры городов
-    const cityCenters = {
-        "Алматы": [43.238949, 76.889709],
-        "Астана": [51.169392, 71.449074],
-        "Караганда": [49.806066, 73.085358],
-    };
+let map;
 
-    // Инициализация карты
-    ymaps.ready(initMap);
-
-    function initMap() {
-        const defaultCity = document.getElementById("city").value;
-        map = new ymaps.Map("map", {
-            center: cityCenters[defaultCity],
-            zoom: 10
-        });
-
-        map.events.add("click", function (e) {
-            const coords = e.get("coords");
-            if (placemark) {
-                placemark.geometry.setCoordinates(coords);
-            } else {
-                placemark = createPlacemark(coords);
-                map.geoObjects.add(placemark);
-            }
-            getAddress(coords);
-        });
-
-        // Обработчик изменения города
-        document.getElementById("city").addEventListener("change", function () {
-            const selectedCity = this.value;
-            if (cityCenters[selectedCity]) {
-                map.setCenter(cityCenters[selectedCity], 10); // Устанавливаем центр карты
-            }
-        });
-    }
-
-    function createPlacemark(coords) {
-        return new ymaps.Placemark(coords, {}, {
-            preset: "islands#blueDotIcon",
-            draggable: false
-        });
-    }
-
-    function getAddress(coords) {
-        ymaps.geocode(coords).then(function (res) {
-            const firstGeoObject = res.geoObjects.get(0);
-            const address = firstGeoObject.getAddressLine();
-            document.getElementById("address").value = address;
-            document.getElementById("coordinates").value = coords.join(", ");
-        });
-    }
-
-    // Отправка данных через форму
-    document.getElementById("submissionForm").addEventListener("submit", async function (event) {
-        event.preventDefault(); // Останавливаем отправку для проверки данных
-
-        // Получаем значения полей
-        const address = document.getElementById("address").value.trim();
-        const coordinates = document.getElementById("coordinates").value.trim();
-
-        // Проверяем, заполнены ли "Адрес дома" и "Координаты"
-        if (address === "" || coordinates === "") {
-            alert("Пожалуйста, заполните все поля, включая 'Адрес дома' и 'Координаты'.");
-            return; // Прерываем выполнение, если поля не заполнены
-        }
-
-        const formData = new FormData(event.target);
-
-        try {
-            const response = await fetch("https://script.google.com/macros/s/AKfycbwAj5jmO20rc5_0ZjvgaVlBUc2pmnNFbh4NdhjIvknYZR_ByQI_QI2aNBjLPWhrkn1Ltg/exec", {
-                method: "POST",
-                body: formData,
-            });
-
-            const result = await response.text();
-            alert(result);
-             resetForm();  // Очищаем форму после отправки
-            
-        } catch (error) {
-            console.error("Ошибка:", error);
-            alert("Произошла ошибка при отправке данных.");
-          
-        }
+function init() {
+    map = new ymaps.Map("map", {
+        center: [51.169392, 71.449074], // Центр Казахстана
+        zoom: 5,
     });
+}
 
- // Функция для очистки формы
-    function resetForm() {
-        document.getElementById("submissionForm").reset();  // Сбрасывает значения формы
-        // Удаляем маркер с карты
-        if (placemark) {
-            map.geoObjects.remove(placemark);
-        }
-    }
-});
+function updateMap() {
+    const city = document.getElementById("city").value;
+
+    ymaps.geocode(city, {
+        results: 1,
+    }).then(function (res) {
+        const firstGeoObject = res.geoObjects.get(0);
+        const coords = firstGeoObject.geometry.getCoordinates();
+        const bounds = firstGeoObject.properties.get('boundedBy');
+
+        map.setBounds(bounds, { checkZoomRange: true });
+
+        map.geoObjects.removeAll();
+        const placemark = new ymaps.Placemark(coords, { balloonContent: city });
+        map.geoObjects.add(placemark);
+    }).catch(function (err) {
+        console.error("Ошибка при загрузке города:", err);
+    });
+}
+"""
+
+# Save files to the appropriate paths
+with open("/mnt/data/index.html", "w", encoding="utf-8") as html_file:
+    html_file.write(html_content)
+
+with open("/mnt/data/styles.css", "w", encoding="utf-8") as css_file:
+    css_file.write(css_content)
+
+with open("/mnt/data/script.js", "w", encoding="utf-8") as js_file:
+    js_file.write(js_content)
+
+"/mnt/data/index.html", "/mnt/data/styles.css", "/mnt/data/script.js"
