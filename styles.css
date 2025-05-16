@@ -70,9 +70,9 @@ input, select, button {
 }
 
 #map {
-    width: 300%;
-    height: 600px;
-    margin-bottom: 30px;
+    width: 100%;
+    height: 200px;
+    margin-bottom: 15px;
 }
 
 /* Кнопка отправки */
